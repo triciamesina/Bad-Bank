@@ -16,7 +16,7 @@ export const UserContext = createContext(null);
 function App() {
   return (
     <>
-      <UserContext.Provider value={{ users: ["trish"] }}>
+      <UserContext.Provider value={{ users: [], currentUser: "" }}>
         <HashRouter>
           <div className="container-fluid">
             <NavBar />

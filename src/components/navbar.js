@@ -43,7 +43,7 @@ export function NavBar() {
         setActive(index);
       }
     });
-  }, []);
+  }, [window.location.hash]);
 
   return (
     <>

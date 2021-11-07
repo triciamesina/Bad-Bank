@@ -15,6 +15,7 @@ export const CreateAccount = () => {
       password: values.password,
       balance: 100,
     });
+    context.currentUser = values.name;
     setSubmitted(true);
   };
 
