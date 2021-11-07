@@ -1,0 +1,4 @@
+.nav-link:hover {
+  color: --bs-body-color;
+  background-color: #cfe2ff;
+}
