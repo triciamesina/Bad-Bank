@@ -19,6 +19,7 @@ export const Login = () => {
 
   const handleLogin = (values) => {
     setClearForm(false);
+    setShowLogout(false);
     const user = context.users.find(
       (u) =>
         u.email.toLowerCase() === values.email.toLowerCase() &&
@@ -30,7 +31,7 @@ export const Login = () => {
       setSubmitted(true);
       setClearForm(true);
     } else {
-      context.currentUser = values.name;
+      context.currentUser = user.name;
       setSuccess(true);
       setSubmitted(true);
     }
