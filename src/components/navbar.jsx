@@ -31,14 +31,21 @@ export function NavBar() {
     },
   ];
 
-  useEffect(() => {
+  const handleHashChange = () => {
     const location = window.location.hash;
     navItems.forEach((i, index) => {
       if (location.toLowerCase().includes(i.link)) {
         setActive(index);
       }
     });
-  }, [window.location.hash]);
+  };
+
+  useEffect(() => {
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
 
   return (
     <>
