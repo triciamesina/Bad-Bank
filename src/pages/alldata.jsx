@@ -1,12 +1,14 @@
 import { UserContext } from "App";
+import { DataTable } from "components/dataTable";
 import React, { useContext } from "react";
 
 export const AllData = () => {
   const context = useContext(UserContext);
+  console.log(context.users);
   return (
     <div>
       <h1>All Data Page</h1>
-      <p>{JSON.stringify(context.users)}</p>
+      <DataTable data={context.users} />
     </div>
   );
 };

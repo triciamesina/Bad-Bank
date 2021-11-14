@@ -17,6 +17,7 @@ export const CreateAccount = () => {
     });
     context.currentUser = values.name;
     setSubmitted(true);
+    console.log(`user added. context : ${context.users}`);
   };
 
   const clearForm = () => {
