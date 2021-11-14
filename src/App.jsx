@@ -5,7 +5,6 @@ import React, { createContext } from "react";
 import { NavBar } from "components/navbar";
 import { Deposit } from "pages/deposit";
 import { Withdraw } from "pages/withdraw";
-import { Balance } from "pages/balance";
 import { AllData } from "pages/alldata";
 import { Login } from "pages/login";
 import { CreateAccount } from "pages/createaccount";
@@ -27,7 +26,6 @@ function App() {
                 <Route path="/login/" component={Login} />
                 <Route path="/deposit/" component={Deposit} />
                 <Route path="/withdraw/" component={Withdraw} />
-                <Route path="/balance/" component={Balance} />
                 <Route path="/alldata/" component={AllData} />
               </div>
             </div>

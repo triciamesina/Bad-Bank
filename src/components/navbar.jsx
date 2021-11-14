@@ -25,11 +25,6 @@ export function NavBar() {
       description: "Withdraw Funds from your account",
     },
     {
-      link: "balance",
-      title: "Balance",
-      description: "Check your account balance",
-    },
-    {
       link: "alldata",
       title: "All Data",
       description: "Check all user data",

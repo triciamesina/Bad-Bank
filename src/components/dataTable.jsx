@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export const DataTable = ({ data }) => {
-  const [rows, setRows] = useState([]);
-  useEffect(() => {
-    setRows(data);
-  }, [data]);
   return (
     <table className="table table-striped table-hover">
       <thead>
@@ -16,8 +12,8 @@ export const DataTable = ({ data }) => {
         </tr>
       </thead>
       <tbody>
-        {rows.length > 0 &&
-          rows.map((row, index) => {
+        {data.length > 0 &&
+          data.map((row, index) => {
             console.log("rendering rows: ", row);
             return (
               <tr>
