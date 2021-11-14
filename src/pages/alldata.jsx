@@ -1,5 +1,6 @@
 import { UserContext } from "App";
 import { DataTable } from "components/dataTable";
+import { Card } from "context";
 import React, { useContext } from "react";
 
 export const AllData = () => {
@@ -8,7 +9,7 @@ export const AllData = () => {
   return (
     <div>
       <h1>All Data Page</h1>
-      <DataTable data={context.users} />
+      <Card body={<DataTable data={context.users} />} />
     </div>
   );
 };
