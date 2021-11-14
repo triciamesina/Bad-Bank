@@ -57,7 +57,7 @@ export const AmountForm = ({ onSubmit, onReset, validate, buttonText }) => {
       noValidate
     >
       <div className="form-group">
-        <label htmlFor="form-amount">Deposit Amount</label>
+        <label htmlFor="form-amount">{buttonText} Amount</label>
         <input
           className={
             `form-control ` +

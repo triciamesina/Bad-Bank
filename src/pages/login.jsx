@@ -7,16 +7,18 @@ import React, { useContext, useEffect, useState } from "react";
 export const Login = () => {
   const [submitted, setSubmitted] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
+  const [clearForm, setClearForm] = useState(true);
   const context = useContext(UserContext);
 
   useEffect(() => {
     if (context.currentUser !== null && context.currentUser !== "") {
       setSuccess(true);
-      setSubmitted(true);
     }
   }, [context]);
 
   const handleLogin = (values) => {
+    setClearForm(false);
     const user = context.users.find(
       (u) =>
         u.email.toLowerCase() === values.email.toLowerCase() &&
@@ -26,6 +28,7 @@ export const Login = () => {
       context.currentUser = "";
       setSuccess(false);
       setSubmitted(true);
+      setClearForm(true);
     } else {
       context.currentUser = values.name;
       setSuccess(true);
@@ -38,6 +41,7 @@ export const Login = () => {
     context.currentUser = "";
     setSuccess(false);
     setSubmitted(false);
+    setShowLogout(true);
   };
 
   const isUserLoggedIn = () => {
@@ -46,12 +50,18 @@ export const Login = () => {
 
   return (
     <div>
-      {submitted && <Alert message="Success" type="success" showIcon={true} />}
-      {submitted && success === false && (
-        <Alert message="Failed!" type="danger" showIcon={true} />
+      {submitted && success === true ? (
+        <Alert message="Login successful!" type="success" showIcon={true} />
+      ) : (
+        submitted && (
+          <Alert message="Login failed!" type="danger" showIcon={true} />
+        )
+      )}
+      {showLogout && (
+        <Alert message="Logout successful!" type="success" showIcon={true} />
       )}
       <h1>Login Page</h1>
-      {submitted && success === true ? (
+      {success === true ? (
         <Card
           txtcolor="black"
           header={`Hi ${context.currentUser}`}
@@ -70,7 +80,7 @@ export const Login = () => {
         <Card
           txtcolor="black"
           header="Login to your account"
-          body={<LoginForm onSubmit={handleLogin} />}
+          body={<LoginForm onSubmit={handleLogin} clearForm={clearForm} />}
         />
       )}
     </div>

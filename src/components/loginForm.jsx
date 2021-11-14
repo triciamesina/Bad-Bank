@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 
-export const LoginForm = ({ onSubmit }) => {
+export const LoginForm = ({ onSubmit, clearForm }) => {
   const [enableSubmit, setEnableSubmit] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -46,6 +46,13 @@ export const LoginForm = ({ onSubmit }) => {
     }
     setEnableSubmit(false);
   }, [formik.values]);
+
+  useEffect(() => {
+    if (clearForm) {
+      formik.resetForm(formik.initialValues);
+      setSubmitted(false);
+    }
+  }, [clearForm]);
 
   return (
     <form
